@@ -22,14 +22,13 @@ public class Aggregated {
 	SpeedResultInt speedRepo;
 	
 	@GetMapping(produces=MediaType.APPLICATION_JSON_VALUE)
-	public SpeedResult getArticleById(@RequestParam(name = "subjectName") String subjectName,
+	public SpeedResult getSpeedResult(@RequestParam(name = "subjectName") String subjectName,
 			@RequestParam(name = "convertTo")  String convertTo) {
-		
 		
 		//Connect with Repo microservice 
 	    //SpeedResult result = speedRepo.;	
 	    
-	    if(article == null) {
+	    if(result == null) {
 	    	return null;//throw error here
 	    }
 	    
@@ -45,6 +44,6 @@ public class Aggregated {
 			//throw exception
 		}
 		
-		return new ResponseEntity<Article>(speed, HttpStatus.CREATED); 
+		return new ResponseEntity<SpeedResult>(speed, HttpStatus.CREATED); 
 	}
 }
