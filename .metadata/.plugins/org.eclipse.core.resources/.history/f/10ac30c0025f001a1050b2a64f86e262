@@ -1,0 +1,43 @@
+package com.example.demo.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.model.SpeedResult;
+
+
+@RestController
+@RequestMapping(value="/api/experiment")
+public class Aggregated {
+	
+	//create a connection with repo microservice 
+	@Autowired
+	SpeedResultInt speed;
+	
+	@GetMapping(produces=MediaType.APPLICATION_JSON_VALUE)
+	public SpeedResult getArticleById(@RequestParam(name = "subjectName") String subjectName,
+			@RequestParam(name = "convertTo")  String convertTo) {
+		
+		
+		//Connect with Repo microservice 
+	    SpeedResult result = speed.;	
+	    
+	    if(article == null) {
+	    	return null;//throw error here
+	    }
+	    
+	    return result;
+	}
+	
+	
+	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<SpeedResult> addArticle(@RequestBody SpeedResult newSpeedResult) {
+		
+		SpeedResult speed = articleService.addArticle(newSpeedResult);
+		return new ResponseEntity<Article>(speed, HttpStatus.CREATED); 
+	}
+}
