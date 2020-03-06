@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import javax.persistence.CascadeType;
@@ -22,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Component
 @Entity
 @Table(name="speed_result")
-public class SpeedResult {
+public class SpeedResult implements Serializable {
 	
 	@Id
 	@Column(name="id")
